@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring Repository</title>
+</head>
+
+<body>
+<h1>Task info page</h1>
+
+<!--/*@thymesVar id="message" type="java.lang.String"*/-->
+<!--/*@thymesVar id="task" type="com.gbjavacourse.hw.repository.entities.Task"*/-->
+
+<span th:text="${message}" />
+<br>
+<span th:text="'Task info: '" />
+<br>
+<span th:text="${task.getTaskInfo()}" />
+</body>
+</html>

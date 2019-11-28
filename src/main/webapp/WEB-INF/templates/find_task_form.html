@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring Repository</title>
+</head>
+<body>
+<!--/*@thymesVar id="task" type="com.gbjavacourse.hw.repository.entities.Task"*/-->
+<form th:action="@{/info}" method="POST">
+    Task id: <input th:field="*{id}"/>
+    <br>
+
+
+    <br>
+    <input type="submit" value="Submit" />
+</form>
+<a th:href="@{/}">Start page</a>
+</body>
+</html>

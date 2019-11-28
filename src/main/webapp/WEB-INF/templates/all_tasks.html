@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring Repository</title>
+</head>
+
+<body>
+<h1>List of tasks</h1>
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Title</td>
+        <td>Owner</td>
+        <td>Status</td>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="tasks" type="java.util.List<com.gbjavacourse.hw.repository.entities.Task>"*/-->
+    <tr th:each="s : ${tasks}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.title}"></td>
+        <td th:text="${s.ownerName}"></td>
+        <td th:text="${s.status}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Start page</a>
+</body>
+</html>

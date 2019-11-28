@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring Repository</title>
+</head>
+<body>
+<!--/*@thymesVar id="task" type="com.gbjavacourse.hw.repository.entities.Task"*/-->
+<form th:action="@{/task_adding}" th:object="${task}" method="POST">
+    Task title: <input th:field="*{title}"/>
+    <br>
+    Task owner name: <input th:field="*{ownerName}"/>
+    <br>
+    Task executerName name: <input th:field="*{executerName}"/>
+    <br>
+    Task description: <input th:field="*{description}"/>
+    <br>
+
+    Status:
+    <select th:field="*{status}">
+        <option value="Open" th:text="Open" label="Open" />
+        <option value="Assigned" th:text="Assigned" label="Assigned" />
+        <option value="Progress" th:text="Progress" label="Progress" />
+        <option value="Closed" th:text="Closed" label="Closed" />
+    </select>
+    <br>
+
+    <br>
+    <input type="submit" value="Submit" />
+</form>
+<a th:href="@{/}">Start page</a>
+</body>
+</html>

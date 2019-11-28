@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring Repository</title>
+</head>
+
+<body>
+<h1>Task Form</h1>
+<!--/simple_form_processing?taskTitle=...-->
+<form th:action="@{/task_processing}" method="GET">
+    <input type="text" name="taskTitle" placeholder="Task title"/>
+    <input type="text" name="taskOwnerName" placeholder="Petrov"/>
+    <input type="text" name="taskExecuterName" placeholder="Ivanov"/>
+    <input type="text" name="taskDescription" placeholder="Test task creation from page"/>
+    <input type="text" name="taskStatus" placeholder="open"/>
+    <input type="submit"/>
+</form>
+<br>
+<br>
+<a th:href="@{/}">Start page</a>
+</body>
+</html>
