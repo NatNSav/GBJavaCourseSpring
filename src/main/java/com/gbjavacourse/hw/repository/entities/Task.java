@@ -1,14 +1,8 @@
 package com.gbjavacourse.hw.repository.entities;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-
-@Component("task")
-@Scope("prototype")
 
 @Entity
 @Table(name = "Task")

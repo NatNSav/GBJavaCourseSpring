@@ -3,11 +3,11 @@ package com.gbjavacourse.hw.repository.services;
 import com.gbjavacourse.hw.repository.entities.Task;
 import com.gbjavacourse.hw.repository.entities.TaskRepository;
 import com.gbjavacourse.hw.repository.interfaces.DataBaseTaskServiceInterface;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class DataBaseTaskService implements  DataBaseTaskServiceInterface {
     private TaskRepository repository;
 
@@ -25,6 +25,8 @@ public class DataBaseTaskService implements  DataBaseTaskServiceInterface {
     public boolean isTaskInDB(Task task)  {
         return repository.isTaskInDB(task);
     }
+
+    public Task getTaskById(Long id){return  repository.getTaskById(id);}
 
     public List<Task> getAllTasksFromDB(){
         return repository.getAllTasksFromDB();

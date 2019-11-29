@@ -2,19 +2,22 @@ package com.gbjavacourse.hw.repository.entities;
 
 import com.gbjavacourse.hw.repository.interfaces.RepositoryInterface;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Repository
+@Transactional
 public class TaskRepository implements RepositoryInterface {
-   private SessionFactory factory;
+    private SessionFactory factory;
 
-    public TaskRepository(SessionFactory factory) {
-        this.factory = factory;
-    }
+    @Autowired
+    public void setFactory(SessionFactory factory){this.factory = factory;}
 
-    public SessionFactory getFactory() {
-        return factory;
+    public TaskRepository() {
     }
 
     public boolean isTaskInDB(Task task)  {
@@ -24,6 +27,15 @@ public class TaskRepository implements RepositoryInterface {
         em.getTransaction().commit();
         em.close();
         return taskRes!=null;
+    }
+
+    public Task getTaskById(Long id)  {
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
+        Task taskRes = em.find(Task.class, id);
+        em.getTransaction().commit();
+        em.close();
+        return taskRes;
     }
 
     public List<Task> getAllTasksFromDB(){
